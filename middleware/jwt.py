@@ -1,5 +1,6 @@
 import jwt
 import datetime
+from constants.secret import jwtSecret
 
 class JWT:
 
@@ -10,12 +11,12 @@ class JWT:
 
     def encode(self, payload):
         payload["exp"] = datetime.datetime.utcnow() + datetime.timedelta(seconds=JWT.__exp)
-        return jwt.encode(payload, "secret", algorithm="HS256")
+        return jwt.encode(payload, jwtSecret, algorithm="HS256")
 
     def decode(self, encoded_jwt):
         decoded_jwt = None
         try:
-            decoded_jwt = jwt.decode(encoded_jwt, "secret", algorithms=["HS256"])
+            decoded_jwt = jwt.decode(encoded_jwt, jwtSecret, algorithms=["HS256"])
         except jwt.ExpiredSignatureError:
             # Signature has expired
             pass
