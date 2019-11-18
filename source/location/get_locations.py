@@ -14,7 +14,7 @@ class GetLocationsResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-locations"]
+            url = urls["rootURL"] + urls["paths"]["get-locations"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

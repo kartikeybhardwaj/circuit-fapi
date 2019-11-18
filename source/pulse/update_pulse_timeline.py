@@ -14,7 +14,7 @@ class UpdatePulseTimelineResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["update-pulse-timeline"]
+            url = urls["rootURL"] + urls["paths"]["update-pulse-timeline"]
             params = req.params
             media = req.media
             r = requests.post(url=url, params=params, json=media)

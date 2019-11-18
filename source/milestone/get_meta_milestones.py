@@ -14,7 +14,7 @@ class GetMetaMilestonesResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-meta-milestones"]
+            url = urls["rootURL"] + urls["paths"]["get-meta-milestones"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

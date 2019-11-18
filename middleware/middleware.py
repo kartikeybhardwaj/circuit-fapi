@@ -7,7 +7,7 @@ from middleware.jwt import JWT
 from constants.urls import urls
 
 ignoreProcessRequestForPaths = [
-    urls["path"]["get-user"]
+    urls["paths"]["get-user"]
 ]
 
 class Middleware:
@@ -32,7 +32,7 @@ class Middleware:
             log.info((thisFilename, inspect.currentframe().f_code.co_name, req.path, "params", str(req.params)))
         if req.method == "POST":
             log.info((thisFilename, inspect.currentframe().f_code.co_name, req.path, "media", str(req.media)))
-        if req.method == "GET" and req.path == urls["path"]["get-user"]:
+        if req.method == "GET" and req.path == urls["paths"]["get-user"]:
             req.params["kartoon-fapi-incoming"] = json.dumps({
                 "username": "kartikey.bhardwaj",
                 "displayname": "Kartikey Bhardwaj"
@@ -69,7 +69,7 @@ class Middleware:
                 the framework processed and routed the request;
                 otherwise False.
         """
-        if req.path == urls["path"]["get-user"] and req.method == "GET" and req_succeeded:
+        if req.path == urls["paths"]["get-user"] and req.method == "GET" and req_succeeded:
             if ("responseId" in resp.media and
                 resp.media["responseId"] == 211 and
                 "data" in resp.media and

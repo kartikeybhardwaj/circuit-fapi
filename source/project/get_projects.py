@@ -14,7 +14,7 @@ class GetProjectsResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-projects"]
+            url = urls["rootURL"] + urls["paths"]["get-projects"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

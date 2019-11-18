@@ -14,7 +14,7 @@ class AddPulseResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["add-pulse"]
+            url = urls["rootURL"] + urls["paths"]["add-pulse"]
             params = req.params
             media = req.media
             r = requests.post(url=url, params=params, json=media)

@@ -14,7 +14,7 @@ class GetMetaPulsesResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-meta-pulses"]
+            url = urls["rootURL"] + urls["paths"]["get-meta-pulses"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

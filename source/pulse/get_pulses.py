@@ -14,7 +14,7 @@ class GetPulsesResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-pulses"]
+            url = urls["rootURL"] + urls["paths"]["get-pulses"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

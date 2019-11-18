@@ -14,7 +14,7 @@ class GetUserResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-user"]
+            url = urls["rootURL"] + urls["paths"]["get-user"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

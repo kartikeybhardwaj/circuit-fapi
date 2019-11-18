@@ -14,7 +14,7 @@ class UpdateBaseLocationResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["update-base-location"]
+            url = urls["rootURL"] + urls["paths"]["update-base-location"]
             params = req.params
             media = req.media
             r = requests.post(url=url, params=params, json=media)

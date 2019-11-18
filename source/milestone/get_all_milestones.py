@@ -14,7 +14,7 @@ class GetAllMilestonesResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-all-milestones"]
+            url = urls["rootURL"] + urls["paths"]["get-all-milestones"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

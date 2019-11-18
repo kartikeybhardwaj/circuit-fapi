@@ -14,7 +14,7 @@ class GetMetaProjectsResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-meta-projects"]
+            url = urls["rootURL"] + urls["paths"]["get-meta-projects"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()

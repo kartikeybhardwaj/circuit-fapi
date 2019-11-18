@@ -14,7 +14,7 @@ class AddNonAvailabilityResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["add-non-availability"]
+            url = urls["rootURL"] + urls["paths"]["add-non-availability"]
             params = req.params
             media = req.media
             r = requests.post(url=url, params=params, json=media)

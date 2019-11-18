@@ -14,7 +14,7 @@ class AddProjectResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["add-project"]
+            url = urls["rootURL"] + urls["paths"]["add-project"]
             params = req.params
             media = req.media
             r = requests.post(url=url, params=params, json=media)

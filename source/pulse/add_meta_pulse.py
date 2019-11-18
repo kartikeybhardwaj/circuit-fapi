@@ -14,7 +14,7 @@ class AddMetaPulseResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["add-meta-pulse"]
+            url = urls["rootURL"] + urls["paths"]["add-meta-pulse"]
             params = req.params
             media = req.media
             r = requests.post(url=url, params=params, json=media)

@@ -14,7 +14,7 @@ class AddRoleResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["add-role"]
+            url = urls["rootURL"] + urls["paths"]["add-role"]
             params = req.params
             media = req.media
             r = requests.post(url=url, params=params, json=media)

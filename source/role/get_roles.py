@@ -14,7 +14,7 @@ class GetRolesResource:
             "data": {}
         }
         try:
-            url = urls["rootURL"] + urls["path"]["get-roles"]
+            url = urls["rootURL"] + urls["paths"]["get-roles"]
             params = req.params
             r = requests.get(url=url, params=params)
             responseObj = r.json()
