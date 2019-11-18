@@ -5,6 +5,7 @@ thisFilename = __file__.split("/")[-1]
 import json
 from middleware.jwt import JWT
 from constants.urls import urls
+from constants.secret import FapiToBapiSecret
 
 ignoreProcessRequestForPaths = [
     urls["paths"]["get-user"]
@@ -35,7 +36,8 @@ class Middleware:
         if req.method == "GET" and req.path == urls["paths"]["get-user"]:
             req.params["kartoon-fapi-incoming"] = json.dumps({
                 "username": "kartikey.bhardwaj",
-                "displayname": "Kartikey Bhardwaj"
+                "displayname": "Kartikey Bhardwaj",
+                "secretKey": FapiToBapiSecret
             })
         elif req.method != "OPTIONS" and req.path not in ignoreProcessRequestForPaths:
             if "AUTHORIZATION" in req.headers and req.headers["AUTHORIZATION"]:
@@ -77,7 +79,8 @@ class Middleware:
                 thisEncode = {
                     "_id": resp.media["data"]["_id"],
                     "username": resp.media["data"]["username"],
-                    "displayname": resp.media["data"]["displayname"]
+                    "displayname": resp.media["data"]["displayname"],
+                    "secretKey": FapiToBapiSecret
                 }
                 encoded_jwt = self.jwt.encode(thisEncode).decode("utf-8")
                 resp.media["data"]["token"] = encoded_jwt
