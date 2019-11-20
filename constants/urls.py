@@ -24,6 +24,7 @@ urls = {
         "add-travel": "/add-travel",
         "add-non-availability": "/add-non-availability",
         "get-all-milestones": "/get-all-milestones",
-        "get-user-pulses": "/get-user-pulses"
+        "get-user-pulses": "/get-user-pulses",
+        "get-overlaps-creating-pulse": "/get-overlaps-creating-pulse"
     }
 }
