@@ -15,8 +15,11 @@ from source.project.add_project import AddProjectResource
 from source.milestone.add_milestone import AddMilestoneResource
 from source.pulse.add_pulse import AddPulseResource
 from source.role.get_roles import GetRolesResource
+from source.project.get_project import GetProjectResource
 from source.project.get_projects import GetProjectsResource
+from source.milestone.get_milestone import GetMilestoneResource
 from source.milestone.get_milestones import GetMilestonesResource
+from source.pulse.get_pulse import GetPulseResource
 from source.pulse.get_pulses import GetPulsesResource
 from source.project.get_meta_projects import GetMetaProjectsResource
 from source.milestone.get_meta_milestones import GetMetaMilestonesResource
@@ -30,6 +33,7 @@ from source.user.add_non_availability import AddNonAvailabilityResource
 from source.milestone.get_all_milestones import GetAllMilestonesResource
 from source.pulse.get_user_pulses import GetUserPulsesResource
 from source.user.get_overlaps_creating_pulse import GetOverlapsCreatingPulseResource
+from source.milestone.update_milestone import UpdateMilestoneResource
 
 cors = CORS(allow_origins_list=["http://localhost:4200"],
             allow_credentials_all_origins=True,
@@ -52,8 +56,11 @@ api.add_route(urls["paths"]["add-project"], AddProjectResource())
 api.add_route(urls["paths"]["add-milestone"], AddMilestoneResource())
 api.add_route(urls["paths"]["add-pulse"], AddPulseResource())
 api.add_route(urls["paths"]["get-roles"], GetRolesResource())
+api.add_route(urls["paths"]["get-project"], GetProjectResource())
 api.add_route(urls["paths"]["get-projects"], GetProjectsResource())
+api.add_route(urls["paths"]["get-milestone"], GetMilestoneResource())
 api.add_route(urls["paths"]["get-milestones"], GetMilestonesResource())
+api.add_route(urls["paths"]["get-pulse"], GetPulseResource())
 api.add_route(urls["paths"]["get-pulses"], GetPulsesResource())
 api.add_route(urls["paths"]["get-meta-projects"], GetMetaProjectsResource())
 api.add_route(urls["paths"]["get-meta-milestones"], GetMetaMilestonesResource())
@@ -67,5 +74,6 @@ api.add_route(urls["paths"]["add-non-availability"], AddNonAvailabilityResource(
 api.add_route(urls["paths"]["get-all-milestones"], GetAllMilestonesResource())
 api.add_route(urls["paths"]["get-user-pulses"], GetUserPulsesResource())
 api.add_route(urls["paths"]["get-overlaps-creating-pulse"], GetOverlapsCreatingPulseResource())
+api.add_route(urls["paths"]["update-milestone"], UpdateMilestoneResource())
 
 log.info("Circuit is up and running..")
