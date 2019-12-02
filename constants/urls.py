@@ -11,8 +11,11 @@ urls = {
         "add-milestone": "/add-milestone",
         "add-pulse": "/add-pulse",
         "get-roles": "/get-roles",
+        "get-project": "/get-project",
         "get-projects": "/get-projects",
+        "get-milestone": "/get-milestone",
         "get-milestones": "/get-milestones",
+        "get-pulse": "/get-pulse",
         "get-pulses": "/get-pulses",
         "get-meta-projects": "/get-meta-projects",
         "get-meta-milestones": "/get-meta-milestones",
@@ -25,6 +28,7 @@ urls = {
         "add-non-availability": "/add-non-availability",
         "get-all-milestones": "/get-all-milestones",
         "get-user-pulses": "/get-user-pulses",
-        "get-overlaps-creating-pulse": "/get-overlaps-creating-pulse"
+        "get-overlaps-creating-pulse": "/get-overlaps-creating-pulse",
+        "update-milestone": "/update-milestone"
     }
 }
