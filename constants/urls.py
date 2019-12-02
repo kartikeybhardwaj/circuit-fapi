@@ -29,6 +29,8 @@ urls = {
         "get-all-milestones": "/get-all-milestones",
         "get-user-pulses": "/get-user-pulses",
         "get-overlaps-creating-pulse": "/get-overlaps-creating-pulse",
-        "update-milestone": "/update-milestone"
+        "update-project": "/update-project",
+        "update-milestone": "/update-milestone",
+        "update-pulse": "/update-pulse"
     }
 }
