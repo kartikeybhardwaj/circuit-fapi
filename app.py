@@ -33,7 +33,9 @@ from source.user.add_non_availability import AddNonAvailabilityResource
 from source.milestone.get_all_milestones import GetAllMilestonesResource
 from source.pulse.get_user_pulses import GetUserPulsesResource
 from source.user.get_overlaps_creating_pulse import GetOverlapsCreatingPulseResource
+from source.project.update_project import UpdateProjectResource
 from source.milestone.update_milestone import UpdateMilestoneResource
+from source.pulse.update_pulse import UpdatePulseResource
 
 cors = CORS(allow_origins_list=["http://localhost:4200"],
             allow_credentials_all_origins=True,
@@ -74,6 +76,8 @@ api.add_route(urls["paths"]["add-non-availability"], AddNonAvailabilityResource(
 api.add_route(urls["paths"]["get-all-milestones"], GetAllMilestonesResource())
 api.add_route(urls["paths"]["get-user-pulses"], GetUserPulsesResource())
 api.add_route(urls["paths"]["get-overlaps-creating-pulse"], GetOverlapsCreatingPulseResource())
+api.add_route(urls["paths"]["update-project"], UpdateProjectResource())
 api.add_route(urls["paths"]["update-milestone"], UpdateMilestoneResource())
+api.add_route(urls["paths"]["update-pulse"], UpdatePulseResource())
 
 log.info("Circuit is up and running..")
