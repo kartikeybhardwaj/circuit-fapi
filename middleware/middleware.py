@@ -7,6 +7,8 @@ from middleware.jwt import JWT
 from constants.urls import urls
 from constants.secret import FapiToBapiSecret
 
+from subprocess import Popen, PIPE
+
 ignoreProcessRequestForPaths = [
     urls["paths"]["get-user"]
 ]
@@ -34,11 +36,32 @@ class Middleware:
         if req.method == "POST":
             log.info((thisFilename, inspect.currentframe().f_code.co_name, req.path, "media", str(req.media)))
         if req.method == "GET" and req.path == urls["paths"]["get-user"]:
+            # for debug (start)
             req.params["kartoon-fapi-incoming"] = json.dumps({
                 "username": "kartikey.bhardwaj",
                 "displayname": "Kartikey Bhardwaj",
                 "secretKey": FapiToBapiSecret
             })
+            # for debug (end)
+            # # for windows (start)
+            # try:
+            #     process = Popen(["ADSearch.exe", req.headers["REMOTE-USER"]], stdout=PIPE)
+            #     (output, err) = process.communicate()
+            #     exit_code = process.wait()
+            #     userData = output.decode("UTF-8")[:-2]
+            #     if userData["status"] == "success":
+            #         req.params["kartoon-fapi-incoming"] = json.dumps({
+            #             "username": userData["data"]["username"],
+            #             "displayname": userData["data"]["displayname"],
+            #             "secretKey": FapiToBapiSecret
+            #         })
+            # except Exception as ex:
+            #     resp.media = {
+            #         "responseId": 109,
+            #         "message": "Unauthorized access"
+            #     }
+            #     resp.complete = True
+            # # for windows (end)
         elif req.method != "OPTIONS" and req.path not in ignoreProcessRequestForPaths:
             if "AUTHORIZATION" in req.headers and req.headers["AUTHORIZATION"]:
                 decoded_jwt = self.jwt.decode(req.headers["AUTHORIZATION"].split()[1])
