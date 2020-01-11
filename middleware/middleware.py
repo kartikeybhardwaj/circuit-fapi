@@ -4,6 +4,7 @@ thisFilename = __file__.split("/")[-1]
 
 import json
 from middleware.jwt import JWT
+from middleware.googleauth import GoogleAuth
 from constants.urls import urls
 from constants.secret import FapiToBapiSecret
 
@@ -36,13 +37,22 @@ class Middleware:
         if req.method == "POST":
             log.info((thisFilename, inspect.currentframe().f_code.co_name, req.path, "media", str(req.media)))
         if req.method == "GET" and req.path == urls["paths"]["get-user"]:
-            # for debug (start)
+            # # for debug (start)
+            # req.params["kartoon-fapi-incoming"] = json.dumps({
+            #     "username": "kartikey.bhardwaj",
+            #     "displayname": "Kartikey Bhardwaj",
+            #     "secretKey": FapiToBapiSecret
+            # })
+            # # for debug (end)
+            # for google auth (start)
+            ga = GoogleAuth()
+            user = ga.getUser(req.headers["AUTHORIZATION"])
             req.params["kartoon-fapi-incoming"] = json.dumps({
-                "username": "kartikey.bhardwaj",
-                "displayname": "Kartikey Bhardwaj",
+                "username": user["username"],
+                "displayname": user["displayname"],
                 "secretKey": FapiToBapiSecret
             })
-            # for debug (end)
+            # for google auth (end)
             # # for windows (start)
             # try:
             #     process = Popen(["ADSearch.exe", req.headers["REMOTE-USER"]], stdout=PIPE)
